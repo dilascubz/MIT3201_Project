@@ -1,0 +1,357 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="StakeholderManagement.SiteMaster" %>
+
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <title>HealthScore | Health & Fitness System</title>
+
+    <link rel="shortcut icon" href="assets/images/logo2.png" />
+
+    <link href="plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="../plugins/morris/morris.css" />
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <%--<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom-styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/animsition/animsition.min.css" />
+
+    <!-- CSS
+		============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <%--<link rel="stylesheet" href="assets2/css/bootstrap.min.css">--%>
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets2/css/icon-font.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets2/css/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="assets2/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets2/css/style.css">
+
+    <!-- Modernizer JS -->
+    <script src="assets2/js/vendor/modernizr-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="main-wrapper">
+
+            <!-- Header Section Start -->
+            <div class="header-section section">
+
+                <!-- Header Top Start -->
+                <div class="header-top header-top-one bg-theme-two">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-center mt-0 mb-0">
+                            <div class="col mt-10 mb-10 d-none d-md-flex">
+                                <!-- Header Top Left Start -->
+                                <div class="header-top-left">
+                                    <p>Welcome,</p>
+                                    <img src="<%= UserImage %>" class="rounded-circle user-img">
+                                    <asp:Label ID="lbluser" runat="server" Text=""></asp:Label>
+                                </div>
+                                <!-- Header Top Left End -->
+                            </div>
+
+                            <div class="col mt-10 mb-10">
+                            </div>
+
+                            <div class="col mt-10 mb-10">
+                                <!-- Header Shop Links Start -->
+                                <div class="header-top-right">
+
+
+                                    <p>BMI Value <%=BMIIndex %></p>
+
+                                    <p><a href="Profile.aspx"><%= MyProfile %></a></p>
+                                    <p>
+                                        <%--<a href="Registration.aspx">Register</a>--%>
+                                        <a href="Login.aspx"><%= Logins %></a>
+                                    </p>
+
+
+
+                                </div>
+                                <!-- Header Shop Links End -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Top End -->
+
+                <!-- Header Bottom Start -->
+                <div class="header-bottom header-bottom-one header-sticky">
+                    <div class="container-fluid">
+                        <div class="row menu-center align-items-center justify-content-between mt-0 mb-0">
+
+                            <div class="col mt-5 mb-5">
+                                <!-- Logo Start -->
+                                <div class="header-logo">
+                                    <img class="logo-web" src="assets/images/logo2.png">
+                                    <img class="logo-mobile" src="assets2/images/logoMobile.png">
+                                </div>
+                                <!-- Logo End -->
+                            </div>
+
+                            <div class="col order-3 order-lg-2 menu-div">
+
+                                <dx:BootstrapMenu ID="TopMenuLink" runat="server" ShowPopOutImages="true" CssClasses-Control="main-menu">
+                                    <Items>
+                                        <dx:BootstrapMenuItem Text="References" Name="References" Visible="false">
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="Add Advertisements" Name="AddAdvertisements" NavigateUrl="AddAdvertisements.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Product Informations" Name="ProductInformations" NavigateUrl="ProductInformations.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Promotions" Name="Promotions" NavigateUrl="Promotions.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <%-- <dx:BootstrapMenuItem Text="Discounts" NavigateUrl="Discounts.aspx">
+                                                </dx:BootstrapMenuItem>
+                                                 <dx:BootstrapMenuItem Text="ASO Accounts" NavigateUrl="ASOAccounts.aspx">
+                                                </dx:BootstrapMenuItem>--%>
+                                                <dx:BootstrapMenuItem Text="User Accounts" Name="UserAccounts" NavigateUrl="UserAccounts.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="User Accounts" Name="UserAccountsz" NavigateUrl="UserAccountsz.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Notification" Name="Notification" NavigateUrl="Notification.aspx">
+                                                </dx:BootstrapMenuItem>
+                                                <%-- <dx:BootstrapMenuItem Text="Visit Status" Name="VisitRecords" NavigateUrl="VisitRecords.aspx">
+                                                </dx:BootstrapMenuItem>--%>
+                                            </Items>
+                                        </dx:BootstrapMenuItem>
+                                        <dx:BootstrapMenuItem Text="Requests" Name="Requests" Visible="false">
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="Quotations" Name="Quotations" NavigateUrl="Quotations.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Quotations Detail" Name="QuotationsDetail" NavigateUrl="QuatationViewz.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="User Chat" Name="UserChat" NavigateUrl="UserChat.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Online Coach" Name="OnlineCoach" NavigateUrl="OnlineCoach.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                            </Items>
+                                        </dx:BootstrapMenuItem>
+                                        <dx:BootstrapMenuItem Text="Fitness" Name="Fitness" Visible="false">
+                                            <Items>
+
+                                                <dx:BootstrapMenuItem Text="Exercise Helper" Name="Exercises" NavigateUrl="Exercises.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Closest Locations" Name="ClosestLocations" NavigateUrl="ClosestLocations.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+
+                                            </Items>
+                                        </dx:BootstrapMenuItem>
+
+
+                                        <dx:BootstrapMenuItem Text="Community" Name="Community" Visible="false">
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="Online Community" Name="OnlineCommunity" NavigateUrl="SocialView.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                            </Items>
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="LeaderBoard" Name="LeaderBoard" NavigateUrl="LeaderBoard.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                            </Items>
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="LeaderBoard Viewer" Name="LeaderBoardViewer" NavigateUrl="LeaderBoardViewer.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                            </Items>
+                                        </dx:BootstrapMenuItem>
+
+                                        <dx:BootstrapMenuItem Text="Page Configuration" Name="PageConfiguration" Visible="false">
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="Page Configuration" Name="PageConfiguration" NavigateUrl="PageConfiguration.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                            </Items>
+                                        </dx:BootstrapMenuItem>
+                                        <dx:BootstrapMenuItem Text="Reports" Name="Reports" Visible="false">
+                                            <Items>
+                                                <dx:BootstrapMenuItem Text="LeaderBoard View" Name="LeaderBoardView" NavigateUrl="LeaderBoardViewer.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="Product Stock" Name="ProductStock" NavigateUrl="Stock.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="User Wise Report" Name="UserWiseReport" NavigateUrl="UserWiseDetails.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                                <dx:BootstrapMenuItem Text="User Wise BMI History" Name="BMIReport" NavigateUrl="BMIIndex.aspx" Visible="false">
+                                                </dx:BootstrapMenuItem>
+                                            </Items>
+                                        </dx:BootstrapMenuItem>
+                                    </Items>
+                                </dx:BootstrapMenu>
+                            </div>
+                            <div class="col order-2 order-lg-3">
+                                <!-- Header Advance Search Start -->
+                                <div class="header-shop-links">
+                                    <div class="header-wishlist">
+                                        <a href="Default.aspx">
+                                            <i class="fa fa-home font-24"></i></a>
+                                    </div>
+                                    <div class="header-search">
+                                        <button class="search-toggle">
+                                            <i class="fa fa-search font-24"></i>
+                                        </button>
+                                        <div class="header-search-wrap">
+                                            <input type="text" placeholder="Type and hit enter">
+                                            <button>
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <%--<div class="header-mini-cart">
+                                    <a href="cart.html">
+                                        <img src="assets/images/icons/cart.png" alt="Cart">
+                                        <span>02($250)</span></a>
+                                </div>--%>
+                                </div>
+                                <!-- Header Advance Search End -->
+                            </div>
+
+
+
+                            <!-- Mobile Menu -->
+                            <div class="mobile-menu order-12 d-block d-lg-none col"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Header BOttom End -->
+
+            </div>
+            <!-- Header Section End -->
+
+            <dx:BootstrapButton ID="btnChat" runat="server" CssClasses-Control="btn-chat" CssClasses-Icon="fa fa-comments" OnClick="btnChat_Click" ToolTip="Chat" Visible="false"></dx:BootstrapButton>
+
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+            <!-- Footer Top Section Start -->
+            <div class="footer-top-section section bg-theme-two-light section-padding">
+                <div class="container">
+                    <div class="row mbn-40">
+
+                        <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
+                            <h4 class="title">CONTACT US</h4>
+                            <p>
+                                Test Street, Colombo,<br />
+                                Sri Lanka.
+                            </p>
+                            <p><a href="tel:(+94) 11 000 0000">(+94) 11 000 6000</a></p>
+                            <p><a href="#">HealthScoreAdmin@admin.com</a><a href="#">www.HealthScore.com</a></p>
+                        </div>
+
+                        <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
+                            <h4 class="title">PRODUCTS</h4>
+                            <ul>
+                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="#">Best Seller</a></li>
+                                <li><a href="#">Trendy Items</a></li>
+                                <li><a href="#">Best Deals</a></li>
+                                <li><a href="#">On Sale Products</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
+                            <h4 class="title">INFORMATION</h4>
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Payment Method</a></li>
+                                <li><a href="#">Product Warranty</a></li>
+                                <li><a href="#">Return Process</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
+                            <h4 class="title">NEWSLETTER</h4>
+                            <p>Subscribe our newsletter and get all update of our product</p>
+
+                            <form id="mc-form" class="mc-form footer-subscribe-form" novalidate="true">
+                                <input id="mc-email" autocomplete="off" placeholder="Enter your email here" name="EMAIL" type="email">
+                                <button id="mc-submit"><i class="fa fa-paper-plane-o"></i></button>
+                            </form>
+                            <!-- mailchimp-alerts Start -->
+                            <div class="mailchimp-alerts">
+                                <div class="mailchimp-submitting"></div>
+                                <!-- mailchimp-submitting end -->
+                                <div class="mailchimp-success"></div>
+                                <!-- mailchimp-success end -->
+                                <div class="mailchimp-error"></div>
+                                <!-- mailchimp-error end -->
+                            </div>
+                            <!-- mailchimp-alerts end -->
+                            <br />
+                            <h5>FOLLOW US</h5>
+                            <p class="footer-social"><a href="#">Facebook</a> - <a href="#">Twitter</a> - <a href="#">Google+</a></p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Top Section End -->
+
+
+            <!-- Footer Bottom Section Start -->
+            <div class="footer-bottom-section section bg-theme-two pt-15 pb-15">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom Section End -->
+
+
+
+        </div>
+    </form>
+</body>
+<!-- JS
+============================================ -->
+
+<!-- jQuery JS -->
+<%--<script src="assets2/js/vendor/jquery-3.4.1.min.js"></script>--%>
+<!-- Popper JS -->
+<script src="assets2/js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="assets2/js/bootstrap.min.js"></script>
+<!-- Plugins JS -->
+<script src="assets2/js/plugins.js"></script>
+<!-- Ajax Mail -->
+<script src="assets2/js/ajax-mail.js"></script>
+<!-- Main JS -->
+<script src="assets2/js/main.js"></script>
+
+</html>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://web.dev.mobitel/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SendBulkSMS" targetNamespace="http://web.dev.mobitel/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://msmsent.mobitel.lk:443/BulkSMS_v2/SendBulk?xsd=1" namespace="http://web.dev.mobitel/" />
+    </xsd:schema>
+  </types>
+  <message name="SendBulk">
+    <part name="parameters" element="tns:SendBulk" />
+  </message>
+  <message name="SendBulkResponse">
+    <part name="parameters" element="tns:SendBulkResponse" />
+  </message>
+  <message name="SendBulkWithTax">
+    <part name="parameters" element="tns:SendBulkWithTax" />
+  </message>
+  <message name="SendBulkWithTaxResponse">
+    <part name="parameters" element="tns:SendBulkWithTaxResponse" />
+  </message>
+  <message name="SendInstantSMS">
+    <part name="parameters" element="tns:SendInstantSMS" />
+  </message>
+  <message name="SendInstantSMSResponse">
+    <part name="parameters" element="tns:SendInstantSMSResponse" />
+  </message>
+  <message name="SendInstantSMSWithTax">
+    <part name="parameters" element="tns:SendInstantSMSWithTax" />
+  </message>
+  <message name="SendInstantSMSWithTaxResponse">
+    <part name="parameters" element="tns:SendInstantSMSWithTaxResponse" />
+  </message>
+  <message name="ViewBulkStatus">
+    <part name="parameters" element="tns:ViewBulkStatus" />
+  </message>
+  <message name="ViewBulkStatusResponse">
+    <part name="parameters" element="tns:ViewBulkStatusResponse" />
+  </message>
+  <message name="ViewInstantSMS_Status">
+    <part name="parameters" element="tns:ViewInstantSMS_Status" />
+  </message>
+  <message name="ViewInstantSMS_StatusResponse">
+    <part name="parameters" element="tns:ViewInstantSMS_StatusResponse" />
+  </message>
+  <message name="PauseCampaign">
+    <part name="parameters" element="tns:PauseCampaign" />
+  </message>
+  <message name="PauseCampaignResponse">
+    <part name="parameters" element="tns:PauseCampaignResponse" />
+  </message>
+  <message name="StopCampaign">
+    <part name="parameters" element="tns:StopCampaign" />
+  </message>
+  <message name="StopCampaignResponse">
+    <part name="parameters" element="tns:StopCampaignResponse" />
+  </message>
+  <message name="RescheduleCampaign">
+    <part name="parameters" element="tns:RescheduleCampaign" />
+  </message>
+  <message name="RescheduleCampaignResponse">
+    <part name="parameters" element="tns:RescheduleCampaignResponse" />
+  </message>
+  <message name="SendTestMessage">
+    <part name="parameters" element="tns:SendTestMessage" />
+  </message>
+  <message name="SendTestMessageResponse">
+    <part name="parameters" element="tns:SendTestMessageResponse" />
+  </message>
+  <message name="ViewStatistics">
+    <part name="parameters" element="tns:ViewStatistics" />
+  </message>
+  <message name="ViewStatisticsResponse">
+    <part name="parameters" element="tns:ViewStatisticsResponse" />
+  </message>
+  <message name="ViewInstantCampaign_Status">
+    <part name="parameters" element="tns:ViewInstantCampaign_Status" />
+  </message>
+  <message name="ViewInstantCampaign_StatusResponse">
+    <part name="parameters" element="tns:ViewInstantCampaign_StatusResponse" />
+  </message>
+  <message name="AddOptedNumbers">
+    <part name="parameters" element="tns:AddOptedNumbers" />
+  </message>
+  <message name="AddOptedNumbersResponse">
+    <part name="parameters" element="tns:AddOptedNumbersResponse" />
+  </message>
+  <message name="ViewOptedNumbers">
+    <part name="parameters" element="tns:ViewOptedNumbers" />
+  </message>
+  <message name="ViewOptedNumbersResponse">
+    <part name="parameters" element="tns:ViewOptedNumbersResponse" />
+  </message>
+  <message name="SendBulkDayTimeSaving">
+    <part name="parameters" element="tns:SendBulkDayTimeSaving" />
+  </message>
+  <message name="SendBulkDayTimeSavingResponse">
+    <part name="parameters" element="tns:SendBulkDayTimeSavingResponse" />
+  </message>
+  <message name="sendInstantDayTimeSaving">
+    <part name="parameters" element="tns:sendInstantDayTimeSaving" />
+  </message>
+  <message name="sendInstantDayTimeSavingResponse">
+    <part name="parameters" element="tns:sendInstantDayTimeSavingResponse" />
+  </message>
+  <message name="ViewInbox">
+    <part name="parameters" element="tns:ViewInbox" />
+  </message>
+  <message name="ViewInboxResponse">
+    <part name="parameters" element="tns:ViewInboxResponse" />
+  </message>
+  <portType name="BulkSMS">
+    <operation name="SendBulk">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/SendBulkRequest" message="tns:SendBulk" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/SendBulkResponse" message="tns:SendBulkResponse" />
+    </operation>
+    <operation name="SendBulkWithTax">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/SendBulkWithTaxRequest" message="tns:SendBulkWithTax" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/SendBulkWithTaxResponse" message="tns:SendBulkWithTaxResponse" />
+    </operation>
+    <operation name="SendInstantSMS">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/SendInstantSMSRequest" message="tns:SendInstantSMS" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/SendInstantSMSResponse" message="tns:SendInstantSMSResponse" />
+    </operation>
+    <operation name="SendInstantSMSWithTax">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/SendInstantSMSWithTaxRequest" message="tns:SendInstantSMSWithTax" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/SendInstantSMSWithTaxResponse" message="tns:SendInstantSMSWithTaxResponse" />
+    </operation>
+    <operation name="ViewBulkStatus">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/ViewBulkStatusRequest" message="tns:ViewBulkStatus" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/ViewBulkStatusResponse" message="tns:ViewBulkStatusResponse" />
+    </operation>
+    <operation name="ViewInstantSMS_Status">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/ViewInstantSMS_StatusRequest" message="tns:ViewInstantSMS_Status" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/ViewInstantSMS_StatusResponse" message="tns:ViewInstantSMS_StatusResponse" />
+    </operation>
+    <operation name="PauseCampaign">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/PauseCampaignRequest" message="tns:PauseCampaign" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/PauseCampaignResponse" message="tns:PauseCampaignResponse" />
+    </operation>
+    <operation name="StopCampaign">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/StopCampaignRequest" message="tns:StopCampaign" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/StopCampaignResponse" message="tns:StopCampaignResponse" />
+    </operation>
+    <operation name="RescheduleCampaign">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/RescheduleCampaignRequest" message="tns:RescheduleCampaign" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/RescheduleCampaignResponse" message="tns:RescheduleCampaignResponse" />
+    </operation>
+    <operation name="SendTestMessage">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/SendTestMessageRequest" message="tns:SendTestMessage" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/SendTestMessageResponse" message="tns:SendTestMessageResponse" />
+    </operation>
+    <operation name="ViewStatistics">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/ViewStatisticsRequest" message="tns:ViewStatistics" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/ViewStatisticsResponse" message="tns:ViewStatisticsResponse" />
+    </operation>
+    <operation name="ViewInstantCampaign_Status">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/ViewInstantCampaign_StatusRequest" message="tns:ViewInstantCampaign_Status" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/ViewInstantCampaign_StatusResponse" message="tns:ViewInstantCampaign_StatusResponse" />
+    </operation>
+    <operation name="AddOptedNumbers">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/AddOptedNumbersRequest" message="tns:AddOptedNumbers" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/AddOptedNumbersResponse" message="tns:AddOptedNumbersResponse" />
+    </operation>
+    <operation name="ViewOptedNumbers">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/ViewOptedNumbersRequest" message="tns:ViewOptedNumbers" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/ViewOptedNumbersResponse" message="tns:ViewOptedNumbersResponse" />
+    </operation>
+    <operation name="SendBulkDayTimeSaving">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/SendBulkDayTimeSavingRequest" message="tns:SendBulkDayTimeSaving" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/SendBulkDayTimeSavingResponse" message="tns:SendBulkDayTimeSavingResponse" />
+    </operation>
+    <operation name="sendInstantDayTimeSaving">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/sendInstantDayTimeSavingRequest" message="tns:sendInstantDayTimeSaving" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/sendInstantDayTimeSavingResponse" message="tns:sendInstantDayTimeSavingResponse" />
+    </operation>
+    <operation name="ViewInbox">
+      <input wsam:Action="http://web.dev.mobitel/BulkSMS/ViewInboxRequest" message="tns:ViewInbox" />
+      <output wsam:Action="http://web.dev.mobitel/BulkSMS/ViewInboxResponse" message="tns:ViewInboxResponse" />
+    </operation>
+  </portType>
+  <binding name="BulkSMSPortBinding" type="tns:BulkSMS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="SendBulk">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendBulkWithTax">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendInstantSMS">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendInstantSMSWithTax">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ViewBulkStatus">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ViewInstantSMS_Status">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="PauseCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="StopCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="RescheduleCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendTestMessage">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ViewStatistics">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ViewInstantCampaign_Status">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="AddOptedNumbers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ViewOptedNumbers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendBulkDayTimeSaving">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendInstantDayTimeSaving">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ViewInbox">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SendBulkSMS">
+    <port name="BulkSMSPort" binding="tns:BulkSMSPortBinding">
+      <soap:address location="https://msmsent.mobitel.lk:443/BulkSMS_v2/SendBulk" />
+    </port>
+  </service>
+</definitions>

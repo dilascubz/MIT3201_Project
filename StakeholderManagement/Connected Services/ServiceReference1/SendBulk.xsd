@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://web.dev.mobitel/" targetNamespace="http://web.dev.mobitel/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AddOptedNumbers" type="tns:AddOptedNumbers" />
+  <xs:element name="AddOptedNumbersResponse" type="tns:AddOptedNumbersResponse" />
+  <xs:element name="PauseCampaign" type="tns:PauseCampaign" />
+  <xs:element name="PauseCampaignResponse" type="tns:PauseCampaignResponse" />
+  <xs:element name="RescheduleCampaign" type="tns:RescheduleCampaign" />
+  <xs:element name="RescheduleCampaignResponse" type="tns:RescheduleCampaignResponse" />
+  <xs:element name="SMS" type="tns:sms" />
+  <xs:element name="SendBulk" type="tns:SendBulk" />
+  <xs:element name="SendBulkDayTimeSaving" type="tns:SendBulkDayTimeSaving" />
+  <xs:element name="SendBulkDayTimeSavingResponse" type="tns:SendBulkDayTimeSavingResponse" />
+  <xs:element name="SendBulkResponse" type="tns:SendBulkResponse" />
+  <xs:element name="SendBulkWithTax" type="tns:SendBulkWithTax" />
+  <xs:element name="SendBulkWithTaxResponse" type="tns:SendBulkWithTaxResponse" />
+  <xs:element name="SendInstantSMS" type="tns:SendInstantSMS" />
+  <xs:element name="SendInstantSMSResponse" type="tns:SendInstantSMSResponse" />
+  <xs:element name="SendInstantSMSWithTax" type="tns:SendInstantSMSWithTax" />
+  <xs:element name="SendInstantSMSWithTaxResponse" type="tns:SendInstantSMSWithTaxResponse" />
+  <xs:element name="SendTestMessage" type="tns:SendTestMessage" />
+  <xs:element name="SendTestMessageResponse" type="tns:SendTestMessageResponse" />
+  <xs:element name="StopCampaign" type="tns:StopCampaign" />
+  <xs:element name="StopCampaignResponse" type="tns:StopCampaignResponse" />
+  <xs:element name="ViewBulkStatus" type="tns:ViewBulkStatus" />
+  <xs:element name="ViewBulkStatusResponse" type="tns:ViewBulkStatusResponse" />
+  <xs:element name="ViewInbox" type="tns:ViewInbox" />
+  <xs:element name="ViewInboxResponse" type="tns:ViewInboxResponse" />
+  <xs:element name="ViewInstantCampaign_Status" type="tns:ViewInstantCampaign_Status" />
+  <xs:element name="ViewInstantCampaign_StatusResponse" type="tns:ViewInstantCampaign_StatusResponse" />
+  <xs:element name="ViewInstantSMS_Status" type="tns:ViewInstantSMS_Status" />
+  <xs:element name="ViewInstantSMS_StatusResponse" type="tns:ViewInstantSMS_StatusResponse" />
+  <xs:element name="ViewOptedNumbers" type="tns:ViewOptedNumbers" />
+  <xs:element name="ViewOptedNumbersResponse" type="tns:ViewOptedNumbersResponse" />
+  <xs:element name="ViewStatistics" type="tns:ViewStatistics" />
+  <xs:element name="ViewStatisticsResponse" type="tns:ViewStatisticsResponse" />
+  <xs:element name="sendInstantDayTimeSaving" type="tns:sendInstantDayTimeSaving" />
+  <xs:element name="sendInstantDayTimeSavingResponse" type="tns:sendInstantDayTimeSavingResponse" />
+  <xs:complexType name="SendInstantSMSWithTax">
+    <xs:sequence>
+      <xs:element name="SMSDetails" type="tns:sms" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sms">
+    <xs:sequence>
+      <xs:element name="account_no" type="xs:string" />
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="send_id" type="xs:string" />
+      <xs:element name="language" type="xs:string" />
+      <xs:element name="sms_content" type="xs:string" />
+      <xs:element name="bulk_start_date" type="xs:string" />
+      <xs:element name="bulk_end_date" type="xs:string" />
+      <xs:element name="campaign_name" type="xs:string" />
+      <xs:element maxOccurs="unbounded" name="number_list" type="xs:string" />
+      <xs:element minOccurs="0" name="add_block_notification" type="xs:string" />
+      <xs:element minOccurs="0" default="1" name="enableTax" type="xs:string" />
+      <xs:element minOccurs="0" default=" " name="callBackUrl" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendInstantSMSWithTaxResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendTestMessage">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="camp_key" type="xs:string" />
+      <xs:element name="mobile_number" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendTestMessageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendInstantSMS">
+    <xs:sequence>
+      <xs:element name="SMSDetails" type="tns:sms" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendInstantSMSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendInstantDayTimeSaving">
+    <xs:sequence>
+      <xs:element name="SMSDetails" type="tns:sms" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendInstantDayTimeSavingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewInstantCampaign_Status">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="camp_key" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewInstantCampaign_StatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewInbox">
+    <xs:sequence>
+      <xs:element name="account_no" type="xs:string" />
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="category" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewInboxResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewStatistics">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="camp_key" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewStatisticsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddOptedNumbers">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element maxOccurs="unbounded" name="send_id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="number_list" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddOptedNumbersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewOptedNumbers">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element maxOccurs="unbounded" name="send_id" type="xs:string" />
+      <xs:element name="from_date" type="xs:string" />
+      <xs:element name="to_date" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewOptedNumbersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewBulkStatus">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="from_date" type="xs:string" />
+      <xs:element name="to_date" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewBulkStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendBulk">
+    <xs:sequence>
+      <xs:element name="SMSDetails" type="tns:sms" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendBulkResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StopCampaign">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="camp_key" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StopCampaignResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendBulkDayTimeSaving">
+    <xs:sequence>
+      <xs:element name="SMSDetails" type="tns:sms" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendBulkDayTimeSavingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewInstantSMS_Status">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="from_date" type="xs:string" />
+      <xs:element name="to_date" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ViewInstantSMS_StatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RescheduleCampaign">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="camp_key" type="xs:string" />
+      <xs:element name="reschedule_start_date" type="xs:string" />
+      <xs:element name="reschedule_end_date" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RescheduleCampaignResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendBulkWithTax">
+    <xs:sequence>
+      <xs:element name="SMSDetails" type="tns:sms" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendBulkWithTaxResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PauseCampaign">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="camp_key" type="xs:string" />
+      <xs:element name="restart_date" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PauseCampaignResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
